@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>마이나스(MyNAS) — PC 서버 설치</title>
+  <style>
+    :root { --blue:#2F6DF6; --blue-dark:#1D56D7; --ink:#142033; --muted:#66768f; --line:#dfe7f2; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,"Malgun Gothic","Noto Sans KR",sans-serif; color:var(--ink); background:#f4f7fb; line-height:1.65; }
+    .hero { background:linear-gradient(135deg,var(--blue),var(--blue-dark)); color:#fff; padding:56px 20px 48px; text-align:center; }
+    .logo { width:88px; height:88px; border-radius:24px; background:rgba(255,255,255,.15); display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px; }
+    .logo svg { width:52px; height:52px; }
+    h1 { margin:0 0 8px; font-size:30px; letter-spacing:-.03em; }
+    .hero p { margin:0; opacity:.92; font-size:16px; }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 20px 60px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; margin-top:-32px; box-shadow:0 14px 32px rgba(17,35,66,.08); }
+    .dl { display:block; text-align:center; background:var(--blue); color:#fff; text-decoration:none; font-weight:800; font-size:18px; padding:16px; border-radius:14px; margin:4px 0 8px; }
+    .dl:hover { background:var(--blue-dark); }
+    .dl small { display:block; font-weight:500; font-size:13px; opacity:.85; margin-top:3px; }
+    .note { font-size:13px; color:var(--muted); text-align:center; }
+    h2 { font-size:20px; margin:32px 0 12px; }
+    .step { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); }
+    .step:last-child { border-bottom:0; }
+    .num { flex:0 0 34px; height:34px; border-radius:50%; background:#edf3ff; color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .step b { display:block; margin-bottom:2px; }
+    .step span { color:var(--muted); font-size:14px; }
+    .warn { background:#fff8e7; border:1px solid #f2e1aa; border-radius:12px; padding:14px 16px; font-size:14px; color:#8d6513; margin-top:16px; }
+    code { background:#eef3fb; padding:1px 6px; border-radius:5px; font-size:13px; }
+    footer { text-align:center; color:var(--muted); font-size:13px; padding:24px; }
+    footer a { color:var(--blue); }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">
+      <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+        <path d="M54,24 L74,46 L62,46 L62,64 L46,64 L46,46 L34,46 Z"/>
+        <path d="M30,70 L38,70 L38,76 L70,76 L70,70 L78,70 L78,82 L30,82 Z"/>
+      </svg>
+    </div>
+    <h1>마이나스 PC 서버</h1>
+    <p>내 사진을 내 PC로 백업하려면, PC에 이 서버를 실행하세요.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <!-- 아래 href를 GitHub Releases에 올린 zip 주소로 바꾸세요 -->
+      <a class="dl" href="https://github.com/kobv4279/kobv4.github.io/releases/latest/download/MyNAS-Server-Windows.zip">
+        Windows 서버 다운로드
+        <small>ZIP · 약 54MB · Windows 10/11 · .NET 설치 불필요</small>
+      </a>
+      <p class="note">다운로드가 안 되면 아래 준비 단계를 먼저 확인하세요.</p>
+    </div>
+
+    <h2>설치 방법 (3단계)</h2>
+    <div class="card">
+      <div class="step">
+        <div class="num">1</div>
+        <div><b>압축 풀고 실행</b><span>내려받은 ZIP을 풀고 <code>WifiBackupServer.exe</code> 를 더블클릭하세요. "Windows가 PC를 보호했습니다" 창이 뜨면 <b>추가 정보 → 실행</b>을 누르면 됩니다.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div><b>방화벽 허용</b><span>처음 실행 시 방화벽 팝업이 뜨면 <b>액세스 허용</b>을 누르세요. 같은 Wi-Fi의 폰이 서버를 찾으려면 필요합니다.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div><b>폰 앱에서 연결</b><span>마이나스 앱 → 설정 → <b>서버 자동 검색</b> → 관리 페이지(<code>http://localhost:5099</code>)에 표시된 <b>페어링 코드</b> 6자리 입력. 끝!</span></div>
+      </div>
+    </div>
+
+    <div class="warn">
+      💡 PC가 켜져 있고 같은 Wi-Fi에 있을 때 백업됩니다. 밤에 PC를 켜두면 그동안 자동으로 백업돼요.
+      백업 저장 위치는 관리 페이지(<code>http://localhost:5099</code>)에서 바꿀 수 있습니다.
+    </div>
+  </div>
+
+  <footer>
+    마이나스(MyNAS) · <a href="privacy-policy.html">개인정보처리방침</a><br>
+    문의: kobv4278@gmail.com
+  </footer>
+</body>
+</html>
